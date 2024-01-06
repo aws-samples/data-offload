@@ -1,0 +1,48 @@
+{
+  "log_level": "info",
+  "num_workers" : "20",
+  "reporting_frequency" : 5,
+  "source": "/data/work2",
+  "destinations" : {
+    "group2" : {
+      "type" : "s3compatible",
+      "snowballs" : [
+        {
+          "bucket": "dataoffload",
+          "endpoint": "https://192.168.88.41",
+          "profile": "cluster-0",
+          "name": "cluster-0"
+        },
+        {
+          "bucket": "dataoffload",
+          "endpoint": "https://192.168.88.43",
+          "profile": "cluster-1",
+          "name": "cluster-1"
+        },
+        {
+          "bucket": "dataoffload",
+          "endpoint": "https://192.168.88.45",
+          "profile": "cluster-2",
+          "name": "cluster-2"
+        },
+        {
+          "bucket": "dataoffload",
+          "endpoint": "https://192.168.88.47",
+          "profile": "cluster-3",
+          "name": "cluster-3"
+        }
+      ]  
+    },
+    "group1": {
+      "type": "s3adapter",
+      "snowballs": [
+        {
+          "bucket": "dataoffload",
+          "endpoint": "https://192.168.88.90:8443/",
+          "profile": "DataImport",
+          "name": "DataImport"
+        }
+      ]
+    }
+  }
+}
